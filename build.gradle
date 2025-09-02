@@ -56,5 +56,6 @@ processResources {
 
 tasks.jar{
     archiveFileName = 'CustomCommand.jar'
-    destinationDirectory = file('C:\\Users\\user\\Desktop\\Server\\Plugins')
+    destinationDirectory = file('C:\\Users\\user\\Desktop\\Server\\PluginTest\\plugins')
+
 }

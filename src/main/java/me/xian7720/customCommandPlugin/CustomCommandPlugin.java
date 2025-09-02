@@ -10,7 +10,7 @@ public final class CustomCommandPlugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getLogger().info("Plugin Start");
-        Objects.requireNonNull(getCommand("test")).setExecutor(new command());
+        Objects.requireNonNull(getCommand("roulette")).setExecutor(new RandomRoulette());
 
     }
 

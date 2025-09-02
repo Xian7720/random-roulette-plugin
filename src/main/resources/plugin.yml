@@ -4,4 +4,4 @@ main: me.xian7720.customCommandPlugin.CustomCommandPlugin
 api-version: '1.21'
 
 commands:
-  test:
+  roulette:
