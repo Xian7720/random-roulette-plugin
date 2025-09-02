@@ -16,7 +16,7 @@ public class command implements CommandExecutor {
             p.sendMessage("성공이다!!!!!?");
             return true;
         } else {
-            commandSender.sendMessage("넌 플레이어가 아니다");
+            commandSender.sendMessage("넌 플레이어가 아니다!!");
         }
         return false;
     }
