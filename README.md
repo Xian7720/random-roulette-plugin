@@ -1,2 +1,2 @@
-# Custom-Command-Plugin
-자체 제작 커맨드
+# random-roulette-plugin
+랜덤 룰렛 마인크래프트
