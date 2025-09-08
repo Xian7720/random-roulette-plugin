@@ -52,7 +52,7 @@ public class RandomRoulette implements CommandExecutor {
         else {
             int num = random.nextInt(1000);
 
-            if (num <= 300) player.sendMessage("꽝!"); // 30%
+            if (num <= 300) player.sendMessage("꽝!!"); // 30%
             else if (num <= 340) spawnCreeper(world, player); // 4%
             else if (num <= 380) getPoison(player); // 4%
             else if (num <= 420) getBlind(player); // 4%
