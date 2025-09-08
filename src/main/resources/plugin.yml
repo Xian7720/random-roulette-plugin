@@ -1,7 +1,12 @@
 name: CustomCommand
 version: '1.0-SNAPSHOT'
-main: me.xian7720.customCommandPlugin.CustomCommandPlugin
+main: io.github.xian7720.randomroulette.CustomCommandPlugin
 api-version: '1.21'
 
 commands:
   roulette:
+    description: "rolling roulette"
+    usage: "/roulette <int 1-10>"
+    aliases: [r]
+
+

@@ -1,4 +1,4 @@
-package me.xian7720.customCommandPlugin;
+package io.github.xian7720.randomroulette;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
