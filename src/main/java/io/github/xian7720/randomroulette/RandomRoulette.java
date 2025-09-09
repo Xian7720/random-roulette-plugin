@@ -32,7 +32,7 @@ public class RandomRoulette implements CommandExecutor
         var world = player.getWorld();
 
         if(strings.length > 0){
-            switch(strings[0]){
+            switch(strings[0]){ // TODO 다른 이벤트 값 추가
                 case "1":
                     spawnCreeper(world, player);
                     return true;
@@ -55,7 +55,7 @@ public class RandomRoulette implements CommandExecutor
                     return false;
             }
         }
-        else{
+        else{ // TODO 가중치 기반 랜덤 추가
             int num = random.nextInt(1000);
 
             if(num <= 300) player.sendMessage("꽝!!"); // 30%
