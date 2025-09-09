@@ -5,7 +5,9 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.*;
+import org.bukkit.entity.Creeper;
+import org.bukkit.entity.Firework;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.potion.PotionEffect;
@@ -16,7 +18,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
-public class RandomRoulette implements CommandExecutor {
+public class RandomRoulette implements CommandExecutor
+{
 
     private static final Logger log = LoggerFactory.getLogger(RandomRoulette.class);
 
@@ -29,7 +32,7 @@ public class RandomRoulette implements CommandExecutor {
         var world = player.getWorld();
 
         if(strings.length > 0){
-            switch (strings[0]) {
+            switch(strings[0]){
                 case "1":
                     spawnCreeper(world, player);
                     return true;
@@ -52,21 +55,21 @@ public class RandomRoulette implements CommandExecutor {
                     return false;
             }
         }
-        else {
+        else{
             int num = random.nextInt(1000);
 
-            if (num <= 300) player.sendMessage("꽝!!"); // 30%
-            else if (num <= 340) spawnCreeper(world, player); // 4%
-            else if (num <= 380) getPoison(player); // 4%
-            else if (num <= 420) getBlind(player); // 4%
-            else if (num <= 480) getDirt(player); // 6%
-            else if (num <= 490) getWither(player); // 1%
-            else if (num <= 570) setChangeHealth(player); // 8%
-            else if (num <= 600) summonLightning(world, player); // 3%
-            else if (num <= 650) flyingFirework(world, player); // 5%
-            else if (num <= 690) setDurabilityOne(player); // 4%
-            else if (num <= 730) randomReplaceItem(player); // 4%
-            else if (num <= 760) randomReplaceItem(player); // 3%
+            if(num <= 300) player.sendMessage("꽝!!"); // 30%
+            else if(num <= 340) spawnCreeper(world, player); // 4%
+            else if(num <= 380) getPoison(player); // 4%
+            else if(num <= 420) getBlind(player); // 4%
+            else if(num <= 480) getDirt(player); // 6%
+            else if(num <= 490) getWither(player); // 1%
+            else if(num <= 570) setChangeHealth(player); // 8%
+            else if(num <= 600) summonLightning(world, player); // 3%
+            else if(num <= 650) flyingFirework(world, player); // 5%
+            else if(num <= 690) setDurabilityOne(player); // 4%
+            else if(num <= 730) randomReplaceItem(player); // 4%
+            else if(num <= 760) randomReplaceItem(player); // 3%
 
 //        Objects.requireNonNull(player).sendMessage("Random number: " + num);
 
@@ -76,67 +79,65 @@ public class RandomRoulette implements CommandExecutor {
         }
     }
 
-        public void spawnCreeper(World w, Player p)
-        {
-            w.spawn(p.getLocation(), Creeper.class);
-            p.sendMessage("*펑*");
-        }
+    public void spawnCreeper(World w, Player p)
+    {
+        w.spawn(p.getLocation(), Creeper.class);
+        p.sendMessage("*펑*");
+    }
 
-        public void getPoison(Player p)
-        {
-            var potionEffect = new PotionEffect(PotionEffectType.POISON, 400, 0);
-            p.addPotionEffect(potionEffect);
-            p.sendMessage("독에걸렷다");
-        }
+    public void getPoison(Player p)
+    {
+        var potionEffect = new PotionEffect(PotionEffectType.POISON, 400, 0);
+        p.addPotionEffect(potionEffect);
+        p.sendMessage("독에걸렷다");
+    }
 
-        public void getBlind(Player p)
-        {
-            var potionEffect = new PotionEffect(PotionEffectType.BLINDNESS, 200, 0);
-            p.addPotionEffect(potionEffect);
-            p.sendMessage("넌이제앞이안보인다");
-        }
+    public void getBlind(Player p)
+    {
+        var potionEffect = new PotionEffect(PotionEffectType.BLINDNESS, 200, 0);
+        p.addPotionEffect(potionEffect);
+        p.sendMessage("넌이제앞이안보인다");
+    }
 
-        public void getDirt(Player p)
-        {
-            var item = new ItemStack(Material.DIRT, 2000);
-            p.getInventory().addItem(item);
-            p.sendMessage("흙 X 2000!!!");
-        }
+    public void getDirt(Player p)
+    {
+        var item = new ItemStack(Material.DIRT, 2000);
+        p.getInventory().addItem(item);
+        p.sendMessage("흙 X 2000!!!");
+    }
 
-        public void summonLightning(World w, Player p)
-        {
-            w.strikeLightning(p.getLocation());
-            p.sendMessage("번개 또는 전정(電霆) 현상은 구름과 구름, 구름과 지표면 사이에서 전기의 방전이 일어나는 현상이다.");
-        }
+    public void summonLightning(World w, Player p)
+    {
+        w.strikeLightning(p.getLocation());
+        p.sendMessage("번개 또는 전정(電霆) 현상은 구름과 구름, 구름과 지표면 사이에서 전기의 방전이 일어나는 현상이다.");
+    }
 
-        public void getWither(Player p)
-        {
-            var potionEffect = new PotionEffect(PotionEffectType.WITHER, 2007831, 0);
-            p.addPotionEffect(potionEffect);
-            p.sendMessage("죽기까지 10... 9... 8...");
-        }
+    public void getWither(Player p)
+    {
+        var potionEffect = new PotionEffect(PotionEffectType.WITHER, 2007831, 0);
+        p.addPotionEffect(potionEffect);
+        p.sendMessage("죽기까지 10... 9... 8...");
+    }
 
-        public void setChangeHealth(Player p) {
+    public void setChangeHealth(Player p)
+    {
 
         var attr = p.getAttribute(Attribute.MAX_HEALTH);
-        if (attr == null) return;
+        if(attr == null) return;
 
         double crtHealth = attr.getBaseValue();
         double newHealth = 0;
 
         int r = random.nextInt(2);
-        if (r == 1 && crtHealth > 1)
-        {
+        if(r == 1 && crtHealth > 1){
             newHealth = Math.abs(crtHealth / 2);
             p.sendMessage("절반의 체력!");
         }
-        else if(crtHealth < 160)
-        {
+        else if(crtHealth < 160){
             newHealth = crtHealth * 2;
             p.sendMessage("두배의 체력!");
         }
-        else
-        {
+        else{
             p.sendMessage("최대 체력 값을 초과했습니다. (변동 없음)");
             return;
         }
@@ -165,12 +166,10 @@ public class RandomRoulette implements CommandExecutor {
     {
         var inventory = p.getInventory();
 
-        for(ItemStack item : inventory.getContents())
-        {
+        for(ItemStack item : inventory.getContents()){
             if(item == null || item.getType().isAir() || item.getType().getMaxDurability() == 0) continue;
 
-            if(item.getItemMeta() instanceof Damageable dmg)
-            {
+            if(item.getItemMeta() instanceof Damageable dmg){
                 dmg.setDamage(item.getType().getMaxDurability() - 1);
                 item.setItemMeta(dmg);
             }
@@ -186,14 +185,12 @@ public class RandomRoulette implements CommandExecutor {
         int cnt = 0;
 
         ItemStack[] contents = inventory.getContents();
-        for(int i = 0; i < contents.length; i++)
-        {
+        for(int i = 0; i < contents.length; i++){
             ItemStack item = contents[i];
             if(item == null || item.getType().isAir() || item.getType() == newItem) continue;
 
 
-            if(random.nextInt(10) == 7)
-            {
+            if(random.nextInt(10) == 7){
                 cnt++;
                 inventory.setItem(i, new ItemStack(newItem));
             }
