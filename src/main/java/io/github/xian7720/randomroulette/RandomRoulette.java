@@ -45,6 +45,9 @@ public class RandomRoulette implements CommandExecutor {
                 case "10":
                     randomReplaceItem(player);
                     return true;
+                case "11":
+                    reverseGravity(player);
+                    return true;
                 default:
                     return false;
             }
@@ -63,6 +66,7 @@ public class RandomRoulette implements CommandExecutor {
             else if (num <= 650) flyingFirework(world, player); // 5%
             else if (num <= 690) setDurabilityOne(player); // 4%
             else if (num <= 730) randomReplaceItem(player); // 4%
+            else if (num <= 760) randomReplaceItem(player); // 3%
 
 //        Objects.requireNonNull(player).sendMessage("Random number: " + num);
 
@@ -196,5 +200,16 @@ public class RandomRoulette implements CommandExecutor {
         }
 
         p.sendMessage("총 " + cnt + "개의 아이템이 복어가 되었습니다!");
+    }
+
+    public void reverseGravity(Player p)
+    {
+        var attr = p.getAttribute(Attribute.GRAVITY);
+        attr.setBaseValue(-0.01);
+        p.sendMessage("↑↑↑");
+        Bukkit.getScheduler().runTaskLater(RandomRoulettePlugin.getPlugin(RandomRoulettePlugin.class), () -> {
+            attr.setBaseValue(0.08);
+            p.sendMessage("↓↓↓");
+        }, 600L);
     }
 }

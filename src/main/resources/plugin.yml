@@ -1,6 +1,6 @@
-name: CustomCommand
+name: RandomRoulette
 version: '1.0-SNAPSHOT'
-main: io.github.xian7720.randomroulette.CustomCommandPlugin
+main: io.github.xian7720.randomroulette.RandomRoulettePlugin
 api-version: '1.21'
 
 commands:

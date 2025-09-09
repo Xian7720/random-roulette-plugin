@@ -4,7 +4,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;
 
-public final class CustomCommandPlugin extends JavaPlugin {
+public final class RandomRoulettePlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
